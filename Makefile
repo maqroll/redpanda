@@ -6,3 +6,6 @@ create_topic:
 
 list_topics:
 	docker exec -it redpanda rpk api topic list
+
+list_topics_kafkacat:
+	docker run -it --link redpanda edenhill/kafkacat:1.6.0 kafkacat -b redpanda:9092 -L
