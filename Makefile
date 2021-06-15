@@ -15,3 +15,6 @@ list_topics_kafkacat:
 
 consume:
 	docker run -it edenhill/kafkacat:1.5.0 kafkacat -b 127.0.0.1:9092 -t prices -o 0 -e
+
+transactional_producer:
+	seq 100 | docker run -i --link redpanda edenhill/kafkacat:1.6.0 kafkacat -b redpanda:9092 -P -t prices -X transactional.id=myproducer
