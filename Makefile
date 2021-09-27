@@ -18,3 +18,9 @@ consume:
 
 transactional_producer:
 	seq 100 | docker run -i --link redpanda edenhill/kafkacat:1.6.0 kafkacat -b redpanda:9092 -P -t prices -X transactional.id=myproducer
+
+start_ensemble:
+	docker-compose up -d
+
+stop_ensemble:
+	docker-compose stop	
